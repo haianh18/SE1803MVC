@@ -41,7 +41,7 @@
                 </tr>
                 <tr>
                     <td>CategoryID</td>
-                    <td><select name="CategoryID" id=""">
+                    <td><select name="CategoryID" id="">
                             <%while(rsCate.next()){%>
                           <option value="<%=rsCate.getInt(1)%>"><%=rsCate.getString(2)%></option>
                         <%}%>
