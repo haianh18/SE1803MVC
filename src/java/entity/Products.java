@@ -21,6 +21,14 @@ public class Products {
     public Products() {
     }
 
+    public Products(int ProductID, String ProductName, int UnitsInStock, double UnitPrice) {
+        this.ProductID = ProductID;
+        this.ProductName = ProductName;
+        this.UnitsInStock = UnitsInStock;
+        this.UnitPrice = UnitPrice;
+    }
+    
+
     public Products(int ProductID, String ProductName, int SupplierID, int CategoryID, String QuantityPerUnit, double UnitPrice, int UnitsInStock, int UnitsOnOrder, int ReorderLevel, boolean Discontinued) {
         this.ProductID = ProductID;
         this.ProductName = ProductName;

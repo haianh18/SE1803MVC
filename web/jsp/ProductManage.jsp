@@ -14,6 +14,8 @@
         <title><%=titlePage%></title>
     </head>
     <body>
+        <p>add Product</p><p>Search</p><!-- tu viet -->
+        <p><a href="CartURL?service=showcart">show cart</a></p>
         <table border="1">
                 <% String titleTable=(String) request.getAttribute("titleTable"); %>
 		<caption><%=titleTable%></caption>
@@ -30,6 +32,7 @@
 			<th>Discontinued</th>
 			<th>update</th>
 			<th>delete</th>
+                        <th>Cart</th>
 		</tr>
                 <% Vector<Products> vector
                     =(Vector<Products>) request.getAttribute("data");
@@ -48,7 +51,8 @@
                         <td><%=pro.isDiscontinued()%></td>
 			<td><a href="ProductControllerURL?service=update&id=<%=pro.getProductID()%>">update</a></td>
 			<td><a href="ProductControllerURL?service=delete&id=<%=pro.getProductID()%>">delete</a></td>
-		</tr>
+                        <td><a href="CartURL?service=add2cart&id=<%=pro.getProductID()%>">add2cart</a></td>
+                </tr>
                 <%}%>
 	</table>
     </body>
