@@ -162,6 +162,35 @@ public class DAOProducts extends DBConnect {
         return vector;
     }
 
+    public Products getCart(int id) {
+        String sql = "select * from Products where ProductID=" + id;
+        Products pro = null;
+        try {
+            Statement state = conn.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,
+                    ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = state.executeQuery(sql);
+            while (rs.next()) {
+                int pid = rs.getInt(1);
+                //int pid = rs.getInt("Productid");
+                //String pname = rs.getString("ProductName");
+                String pname = rs.getString(2);
+                int supID = rs.getInt(3);
+                int cate = rs.getInt(4);
+                String quantity = rs.getString(5);
+                Double price = rs.getDouble(6);
+                int unitIn = rs.getInt(7);
+                int unitOn = rs.getInt(8);
+                int reorder = rs.getInt(9);
+                boolean dis = rs.getBoolean(10);
+                pro = new Products(pid, pname,
+                        unitIn, price);
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+        return pro;
+    }
+
     public Vector<Products> searchName(String name) {
         Vector<Products> vector = new Vector<>();
         String sql = "select * from Products where productName like "
@@ -197,13 +226,15 @@ public class DAOProducts extends DBConnect {
 
     public static void main(String[] args) {
         DAOProducts dao = new DAOProducts();
-        int n=dao.insertProduct(
-            new Products(79,"PDEMO-19",1,1,
-                    "box",0.5,1,0,
-                    0,true)
+        int n = dao.insertProduct(
+                new Products(79, "PDEMO-19", 1, 1,
+                        "box", 0.5, 1, 0,
+                        0, true)
         );
-                
-        if(n>0) System.out.println("inserted!");
+
+        if (n > 0) {
+            System.out.println("inserted!");
+        }
 //        int n = dao.removeProduct(78);
 //        if (n > 0) {
 //            System.out.println("DELETED!!!");
