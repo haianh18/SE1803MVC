@@ -69,20 +69,17 @@ public class DAOOrderDetails extends DBConnect {
     public int updateOrderDetail(OrderDetails order) {
         int n = 0;
         String sql = "UPDATE [dbo].[Order Details]\n"
-                + "   SET [OrderID] = ?\n"
-                + "      ,[ProductID] = ?\n"
-                + "      ,[UnitPrice] = ?\n"
+                + "   SET [UnitPrice] = ?\n"
                 + "      ,[Quantity] = ?\n"
                 + "      ,[Discount] = ?\n"
                 + " WHERE OrderID=?";
         try {
             PreparedStatement pre = conn.prepareStatement(sql);
-            pre.setInt(1, order.getOrderID());
-            pre.setInt(2, order.getProductID());
-            pre.setDouble(3, order.getUnitPrice());
-            pre.setInt(4, order.getQuantity());
-            pre.setInt(5, order.getDiscount());
-            pre.setInt(6, order.getOrderID());
+            
+            pre.setDouble(1, order.getUnitPrice());
+            pre.setInt(2, order.getQuantity());
+            pre.setInt(3, order.getDiscount());
+            pre.setInt(4, order.getOrderID());
             n = pre.executeUpdate();
         } catch (SQLException ex) {
             ex.printStackTrace();
@@ -148,8 +145,8 @@ public class DAOOrderDetails extends DBConnect {
 
     public static void main(String[] args) {
         DAOOrderDetails dao = new DAOOrderDetails();
-        int n = dao.updateOrderDetail(
-                new OrderDetails(11078, 78, 2.5, 3, 1)
+        int n = dao.addOrderDetails(
+                new OrderDetails(11077, 11, 2.5, 3, 1)
         );
 
         if (n > 0) {
