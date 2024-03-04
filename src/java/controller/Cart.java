@@ -61,6 +61,37 @@ public class Cart extends HttpServlet {
             //run
             dispath.forward(request, response);
         }
+
+        if (service.equals("Update")) {
+            String[] id = request.getParameterValues("ProductID");
+            for (int i = 0; i < id.length; i++) {
+                Products pro = dao.getCart(Integer.parseInt(id[i]));
+                pro.setUnitsInStock(Integer.parseInt(request.getParameterValues("UnitsInStock")[i]));
+                session.setAttribute(id[i], pro);
+            }
+            RequestDispatcher dispath
+                    = request.getRequestDispatcher("/jsp/ShowCart.jsp");
+            //run
+            dispath.forward(request, response);
+        }
+        if(service.equals("remove")){
+            String id = request.getParameter("ProductID");
+            session.removeAttribute(id);
+            RequestDispatcher dispath
+                    = request.getRequestDispatcher("/jsp/ShowCart.jsp");
+            //run
+            dispath.forward(request, response);
+        }
+        if(service.equals("Remove All")){
+            String[] id = request.getParameterValues("ProductID");
+            for (int i = 0; i < id.length; i++) {
+                session.removeAttribute(id[i]);
+            }
+            RequestDispatcher dispath
+                    = request.getRequestDispatcher("/jsp/ShowCart.jsp");
+            //run
+            dispath.forward(request, response);
+        }
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

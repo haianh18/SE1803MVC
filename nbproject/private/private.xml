@@ -3,27 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/D:/FPT/PRJ301/SE1803MVC/SE1803MVC/src/java/model/DAOProducts.java</file>
-            <file>file:/D:/FPT/PRJ301/SE1803MVC/SE1803MVC/src/java/controller/Cart.java</file>
             <file>file:/D:/FPT/PRJ301/SE1803MVC/SE1803MVC/web/index.html</file>
-            <file>file:/D:/FPT/PRJ301/SE1803MVC/SE1803MVC/web/jsp/UpdateProduct.jsp</file>
-            <file>file:/D:/FPT/PRJ301/SE1803MVC/SE1803MVC/web/jsp/ProductManage.jsp</file>
-            <file>file:/D:/FPT/PRJ301/SE1803MVC/SE1803MVC/web/jsp/ShowCart.jsp</file>
-            <file>file:/D:/FPT/PRJ301/SE1803MVC/SE1803MVC/src/java/controller/ProductController.java</file>
-=======
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/src/java/controller/OrderDetailsController.java</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/src/java/entity/OrderDetails.java</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/src/java/controller/OrdersController.java</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/web/index.html</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/web/jsp/UpdateEmployee.jsp</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/src/java/controller/ProductController.java</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/src/java/controller/EmployeeController.java</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/src/java/controller/Cart.java</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/web/jsp/ProductManage.jsp</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/web/jsp/UpdateProduct.jsp</file>
-            <file>file:/F:/FPT/PRJ301/Git/SE1803MVC_Test/web/jsp/ShowCart.jsp</file>
->>>>>>> 45d90ca55183c27cd325619e1de00481a72e2dd3
         </group>
     </open-files>
 </project-private>
