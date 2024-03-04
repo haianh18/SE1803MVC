@@ -26,22 +26,29 @@
                 </tr>
                 <% java.util.Enumeration em = session.getAttributeNames();
                 //get keys
+                double grandTotal = 0;
                 while(em.hasMoreElements()){
                     String key = em.nextElement().toString();//get key id
+                    //if != username
                     Products pro = (Products)session.getAttribute(key);//get value
+                    double subTotal = pro.getUnitsInStock()*pro.getUnitPrice();
+                    grandTotal+=subTotal;
                 %>
                 <tr>
                     <td><%=pro.getProductID()%></td>
                     <td><%=pro.getProductName()%></td>
+                    <td><input ><--<!-- dung javascript viet --></td>
                     <td><%=pro.getUnitsInStock()%></td>
                     <td><%=pro.getUnitPrice()%></td>
-                    <td>code subTotal</td>
+                    <td><%=subTotal%></td>
                     <td>code Remove</td>
                 </tr>
                 <%}%>
         </table>
-        <p>code grandTotal = sum of subTotal</p>
-        <p>code remove all products in cart</p>
-        <p>code check out: write cart into DB</p>
+                <p>Grand Total: <%=grandTotal%></p><!--<!-- them code js -->
+        <p>code remove all products in cart</p> <!<!-- duyet qua tung phan tu de tranh delete username-->
+        <p>code check out: write cart into DB</p> <!<!--write vao orderdetail, update them vao order-->
+        <!<!-- them update -->
+        <!<!-- quantity sua duoc chu ko chi xoa -->
     </body>
 </html>
