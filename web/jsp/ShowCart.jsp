@@ -14,15 +14,16 @@
     </head>
     <body>
         <h1>Continue shopping</h1><!-- Tu lam -->
-        <table border="1">
-		<caption>List of Products</caption>
-		<tr>
-			<th>ProductID</th>
-			<th>ProductName</th>
-			<th>Quantity</th>
-			<th>UnitPrice</th>
-			<th>subTotal</th>
-			<th>remove</th>
+        <form action="CartURL" method="post">
+            <table border="1">
+                <caption>List of Products</caption>
+                <tr>
+                    <th>ProductID</th>
+                    <th>ProductName</th>
+                    <th>Quantity</th>
+                    <th>UnitPrice</th>
+                    <th>subTotal</th>
+                    <th>remove</th>
                 </tr>
                 <% java.util.Enumeration em = session.getAttributeNames();
                 //get keys
@@ -33,22 +34,38 @@
                     Products pro = (Products)session.getAttribute(key);//get value
                     double subTotal = pro.getUnitsInStock()*pro.getUnitPrice();
                     grandTotal+=subTotal;
+                    
                 %>
                 <tr>
                     <td><%=pro.getProductID()%></td>
                     <td><%=pro.getProductName()%></td>
-                    <td><input ><--<!-- dung javascript viet --></td>
-                    <td><%=pro.getUnitsInStock()%></td>
+                    <td><input type="text" value="<%=pro.getUnitsInStock()%>" name="UnitsInStock"></td>
                     <td><%=pro.getUnitPrice()%></td>
                     <td><%=subTotal%></td>
-                    <td>code Remove</td>
+                <input type="hidden" value="<%=pro.getProductID()%>" name="ProductID">
+                <input type="hidden" value="<%=pro.getProductName()%>" name="ProductName">
+                <input type="hidden" value="<%=pro.getUnitPrice()%>" name="UnitPrice">
+                <!-- dung javascript viet them phan subtotal -->
+                <td><input type="submit" name="service" value="remove"></td>
                 </tr>
+
                 <%}%>
-        </table>
-                <p>Grand Total: <%=grandTotal%></p><!--<!-- them code js -->
-        <p>code remove all products in cart</p> <!<!-- duyet qua tung phan tu de tranh delete username-->
+                <tr>
+                    <td><input name="service" type="submit" value="Update"></td>
+                    <td><input type="reset" value="Reset"></td>
+                    <td></td>
+                    <td>Grand Total: </td><!--<!-- them code js -->
+                    <td><%=grandTotal%></td>
+                    <td><input name="service" type="submit" value="Remove All"></td>
+                </tr>
+            </table>
+            <p></p>
+            <input type="submit" name="service" value="Check Out">
+        </form>
+
+        <!-- duyet qua tung phan tu de tranh delete username-->
         <p>code check out: write cart into DB</p> <!<!--write vao orderdetail, update them vao order-->
-        <!<!-- them update -->
-        <!<!-- quantity sua duoc chu ko chi xoa -->
+        <!-- them update -->
+        <!-- quantity sua duoc chu ko chi xoa -->
     </body>
 </html>
